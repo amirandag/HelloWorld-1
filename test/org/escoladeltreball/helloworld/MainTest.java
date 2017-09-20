@@ -70,20 +70,26 @@ public class MainTest {
 	/**
 	 * Test method for {@link org.escoladeltreball.helloworld.Main#sum(int[])}.
 	 */
-	// @Ignore("El tractarem més tard")
 	@Test
 	public final void testSum() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(15, main.sum(new int[] {1,2,3,4,5}));
+		assertEquals(28, main.sum(new int[] {4,3,6,1,9,5}));
+		assertEquals(7, main.sum(new int[] {1,-3,3,6}));
+		assertEquals(3, main.sum(new int[] {3}));
+		assertEquals(3, main.sum(new int[] {1,1,1}));
 	}
 
 	/**
 	 * Test method for
 	 * {@link org.escoladeltreball.helloworld.Main#frequency(int[], int)}.
 	 */
-	@Ignore("El tractarem més tard")
 	@Test
 	public final void testFrequency() {
-		fail("Not yet implemented"); // TODO
+		assertEquals(2, main.frequency(new int[] {1,2,3,4,5,5},5));
+		assertEquals(0, main.frequency(new int[] {4,3,6,1,9},5));
+		assertEquals(1, main.frequency(new int[] {1,-3,3,6},-3));
+		assertEquals(1, main.frequency(new int[] {3},3));
+		assertEquals(3, main.frequency(new int[] {1,1,1},1));
 	}
 
 	/**
