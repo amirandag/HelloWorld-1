@@ -55,9 +55,37 @@ public final class Main implements Utils {
 		return counter;
 	}
 
-	
+	@Override
 	public double frequencyPercentage(int[] values, int n) {
-		return ((double) frequency(values, n)) / values.length;
+		return ((double) frequency(values, n)) / values.length * 100;
+	}
+
+	@Override
+	public boolean isPresent(int[] values, int n) {
+		for (int value : values) {
+			if (value == n) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public int[] merge(int[] values, int n) {
+		int[] nMerged = new int[values.length + 1];
+		for (int i=0; i < values.length; i++) {
+			if (values[i] < n) {
+				nMerged[i] = values[i];
+			} 
+			if (values[i] > n) {
+				nMerged[i + 1] = values[i];
+			}
+			if (values[i] < n && values[i + 1] > n) {
+				nMerged[i] = n;
+				i++;
+			}
+		}
+		return nMerged;
 	}
 
 

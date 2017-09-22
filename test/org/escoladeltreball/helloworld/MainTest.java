@@ -95,10 +95,33 @@ public class MainTest {
 	 * Test method for
 	 * {@link org.escoladeltreball.helloworld.Main#frequencyPercentage(int[], int)}.
 	 */
-	@Ignore("El tractarem més tard")
 	@Test
 	public final void testFrequencyPercentage() {
-		fail("Not yet implemented"); // TODO
+		int[] values = {3,4,3,5,1,2,3,0};
+		assertEquals(37.50, main.frequencyPercentage(values, 3), 1e-3);
+	}
+	
+	/**
+	 * Test method for
+	 * {@link org.escoladeltreball.helloworld.Main#isPresent(int[], int)}.
+	 */
+	@Test
+	public final void testIsPresent() {
+		int[] values = {3,4,3,5,1,2,3,0};
+		assertEquals(true, main.isPresent(values, 3));
+		assertEquals(false, main.isPresent(values, 6));
+	}
+	
+	/**
+	 * Test method for
+	 * {@link org.escoladeltreball.helloworld.Main#merge(int[], int)}.
+	 */
+	@Test
+	public final void testMerge() {
+		int[] values = {3,7,9,10,13,21};
+		int[] expected = {3,7,9,10,11,13,21};
+		assertArrayEquals(expected,main.merge(values, 11));
+		assertArrayEquals(new int[] {3,7,9,10,13,21,22},main.merge(values, 22));
 	}
 
 }
